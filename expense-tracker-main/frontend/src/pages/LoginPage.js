@@ -11,7 +11,7 @@ const LoginPage = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/users/login', { email, password });
+      const res = await axios.post('https://expense-tracker-6blg.onrender.com/api/users/login', { email, password });
       localStorage.setItem('token', res.data.token);
       navigate('/'); // Redirect to the main expense tracker page
       window.location.reload(); // Force a reload to update auth state

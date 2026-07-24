@@ -6,7 +6,7 @@ import TransactionList from '../components/TransactionList';
 import AddTransactionForm from '../components/AddTransactionForm';
 import EditModal from '../components/EditModal';
 
-const API_URL = 'http://localhost:5000/api/transactions';
+const API_URL = 'https://expense-tracker-6blg.onrender.com';
 
 const DashboardPage = () => {
   const [transactions, setTransactions] = useState([]);
@@ -25,7 +25,8 @@ const DashboardPage = () => {
   const getTransactions = async () => {
     try {
       const config = createAuthHeaders();
-      const res = await axios.get(API_URL, config);
+      // ✅ CORRECT (points to the transactions route, or appends the endpoint)
+      const res = await axios.get(`${API_URL}/api/transactions`, config);
       setTransactions(res.data);
     } catch (err) {
       console.error("Error fetching transactions:", err);

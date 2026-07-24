@@ -12,7 +12,7 @@ const RegisterPage = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/users/register', { name, email, password });
+      const res = await axios.post('https://expense-tracker-6blg.onrender.com/api/users/register', { name, email, password });
       localStorage.setItem('token', res.data.token);
       navigate('/'); // Redirect to the main expense tracker page after register
       window.location.reload();
