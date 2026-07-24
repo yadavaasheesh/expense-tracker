@@ -1,0 +1,271 @@
+/* frontend/src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+:root {
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --color-plus: #2ecc71;
+  --color-minus: #c0392b;
+  --color-primary: #000000;
+  --color-light-gray: #f9f9f9;
+  --color-dark-gray: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e1ce71;
+  font-family: 'Lato', sans-serif;
+  color: var(--color-dark-gray);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 40px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+header h1 {
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+}
+
+.balance-container {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.balance-container > div {
+  flex: 1;
+}
+
+.balance-container h4 {
+  margin: 0 0 5px;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #777;
+}
+
+.money {
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.money.plus { color: var(--color-plus); }
+.money.minus { color: var(--color-minus); }
+.money.total { font-weight: 700; }
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+}
+
+.form-container, .list-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+h3 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin: 0 0 20px;
+}
+
+.form-control { margin-bottom: 15px; }
+.form-control label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form-control input[type='text'],
+.form-control input[type='number'] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.radio-group label { margin-right: 15px; }
+
+.btn {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: 0;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+.btn:hover { background-color: #9b59b6; }
+
+.list { list-style-type: none; padding: 0; margin-bottom: 0; }
+.list li {
+  background-color: var(--color-light-gray);
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border-left: 5px solid;
+  position: relative;
+}
+
+.list li.plus { border-left-color: var(--color-plus); }
+.list li.minus { border-left-color: var(--color-minus); }
+
+.transaction-details { flex-grow: 1; }
+.transaction-details small { color: #777; }
+.transaction-amount { font-weight: 700; margin: 0 15px; }
+
+.transaction-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.delete-btn, .edit-btn {
+  background: transparent;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+.delete-btn:hover { color: var(--color-minus); }
+.edit-btn:hover { color: var(--color-primary); }
+
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.btn-cancel {
+  background-color: #7f8c8d;
+}
+.btn-cancel:hover {
+  background-color: #95a5a6;
+}
+
+/* ADD THESE STYLES TO THE END OF frontend/src/App.css */
+
+/* Navbar Styles */
+.navbar {
+  background: #fff;
+  color: var(--color-dark-gray);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.navbar h1 a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+.navbar ul li a {
+  color: var(--color-dark-gray);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.navbar ul li a:hover {
+  color: var(--color-primary);
+}
+.logout-btn {
+  background: none;
+  border: none;
+  color: var(--color-dark-gray);
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+}
+.logout-btn:hover {
+  color: var(--color-primary);
+}
+
+/* Adjust main container for fixed navbar */
+.container {
+  padding-top: 80px; /* Add space for the navbar */
+}
+
+
+/* Auth Form Styles */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+.auth-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+.auth-form h2 {
+  margin-bottom: 20px;
+}
+.auth-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.auth-form p {
+  margin-top: 15px;
+}
