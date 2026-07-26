@@ -14,6 +14,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.status(200).send('Expense Tracker API is running');
+});
+
 // 3. USE THE VARIABLE FROM THE .ENV FILE
 mongoose.connect(process.env.MONGO_URI, { 
   useNewUrlParser: true,
