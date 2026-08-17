@@ -17,7 +17,7 @@ const AddTransactionForm = ({ onAdd }) => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/ai/scan-receipt', {
+      const response = await fetch('https://expense-tracker-6blg.onrender.com/api/ai/scan-receipt', {
         method: 'POST',
         body: formData,
       });
@@ -122,4 +122,4 @@ const AddTransactionForm = ({ onAdd }) => {
   );
 };
 
-export default AddTransactionForm;
+export default AddTransactionForm;+
