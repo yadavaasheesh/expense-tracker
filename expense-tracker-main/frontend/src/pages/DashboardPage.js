@@ -44,7 +44,7 @@ const DashboardPage = () => {
   const handleAdd = async (transaction) => {
     try {
       const config = createAuthHeaders();
-      await axios.post(API_URL, transaction, config);
+      await axios.post(`${API_URL}/api/transactions`, transaction, config);
       getTransactions();
     } catch (err) {
       console.error("Error adding transaction:", err);
@@ -54,7 +54,7 @@ const DashboardPage = () => {
   const handleDelete = async (id) => {
     try {
       const config = createAuthHeaders();
-      await axios.delete(`${API_URL}/${id}`, config);
+      await axios.delete(`${API_URL}/api/transactions/${id}`, config);
       getTransactions();
     } catch (err) {
       console.error("Error deleting transaction:", err);
