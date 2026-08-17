@@ -122,4 +122,4 @@ const AddTransactionForm = ({ onAdd }) => {
   );
 };
 
-export default AddTransactionForm;+
+export default AddTransactionForm;
