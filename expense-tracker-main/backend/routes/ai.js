@@ -26,7 +26,7 @@ router.post('/scan-receipt', upload.single('receipt'), async (req, res) => {
     - category (string: e.g. Food, Groceries, Shopping, Entertainment, Utilities, Transport, or Other)`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-3.6-flash',
       contents: [prompt, imagePart],
       config: {
         responseMimeType: 'application/json',
