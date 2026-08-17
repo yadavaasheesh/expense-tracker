@@ -4,7 +4,7 @@ const multer = require('multer');
 const { GoogleGenAI } = require('@google/genai');
 
 const upload = multer({ storage: multer.memoryStorage() });
-const ai = new GoogleGenAI({});
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 router.post('/scan-receipt', upload.single('receipt'), async (req, res) => {
   try {
@@ -26,7 +26,7 @@ router.post('/scan-receipt', upload.single('receipt'), async (req, res) => {
     - category (string: e.g. Food, Groceries, Shopping, Entertainment, Utilities, Transport, or Other)`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-2.0-flash',
       contents: [prompt, imagePart],
       config: {
         responseMimeType: 'application/json',
